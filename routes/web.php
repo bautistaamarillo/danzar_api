@@ -2,17 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\PaymentController;
+use App\Models\Payment;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+/////////CORS, TESTING BAUTISTA////////////////////////////////////////
+function headerCors ( $response ){
+    $response->header('Access-Control-Allow-Origin', '*');
+    $response->header('Access-Control-Allow-Methods', 'GET');
+    $response->header('Access-Control-Allow-Headers', 'Content-Type');
+}
+///////////////////////////////////////////////////////////////////////
+
+//TESTING BAUTISTA.
+Route::get('/paymentjson',function (){
+    $payment = Payment::all();
+    $response = response()->json($payment);
+    headerCors($response);
+    return $response;
+})->name('paymentjson'); 
