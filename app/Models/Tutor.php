@@ -11,7 +11,7 @@ class Tutor extends Model
 
     protected $fillable = [
         'name',
-        'lastaname',
+        'last_name',
         'email',
         'phone_number',
         'dni',                                           
