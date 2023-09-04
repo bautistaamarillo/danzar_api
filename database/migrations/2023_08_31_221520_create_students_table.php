@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('dni')->unique();
             $table->string('phone_number');
             $table->string('observations');
-            $table->string('birthdate');
+            $table->date('birthdate');
             $table->timestamps();
         });
     }
