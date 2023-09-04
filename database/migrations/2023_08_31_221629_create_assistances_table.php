@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('assistances', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('item_id');
             $table->timestamps();
         });
     }
