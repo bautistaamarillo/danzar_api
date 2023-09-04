@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('amount');
-            $table->forgein('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
