@@ -10,9 +10,8 @@ class Item extends Model
     use HasFactory;
 
     protected $filleable = [
-        'item_id',
         'name',
         'amount',
-        'categorie_id'
+        'category_id'
     ];
 }

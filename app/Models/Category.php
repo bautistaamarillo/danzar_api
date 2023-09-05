@@ -10,7 +10,6 @@ class Category extends Model
     use HasFactory;
 
     protected $filleable = [
-        'category_id',
         'name'
     ];
 }

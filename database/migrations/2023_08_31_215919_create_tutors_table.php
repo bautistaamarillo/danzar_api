@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('last_name');
+            $table->string('lastname');
             $table->string('email');
             $table->string('phone_number');
             $table->string('dni');
