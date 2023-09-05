@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaymentController;
-use App\Models\Payment;
+use App\Http\Controllers\CategoryController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,10 @@ Route::get('/paymentjson',function (){
     headerCors($response);
     return $response;
 })->name('paymentjson'); 
+
+Route::get('/token',function() {
+    return csrf_token();
+});
+
+Route::resource('categories', CategoryController::class);
+///////////////////////////////////////////////////////////////////////
