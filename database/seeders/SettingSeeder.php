@@ -15,16 +15,16 @@ class SettingSeeder extends Seeder
     {
         //
         DB::table('settings')->insert([
-            'name'=> 'first_expiration_day',
+          'name'=> 'primer dia de vencimiento',
         ]);
 
         DB::table('settings')->insert([
-          'name'=> 'second_expiration_day',
+          'name'=> 'segundo dia de vencimiento',
         ]);
 
         DB::table('settings')->insert([
-            'name'=> 'third_day_of_expiration',
-          ]);
+          'name'=> 'tercer dia de vencimiento',
+        ]);
 
         
     }
