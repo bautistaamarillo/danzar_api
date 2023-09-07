@@ -14,16 +14,7 @@ class TutorSeeder extends Seeder
      */
     public function run(): void
     {
-        {
-            DB::table('tutors')->insert([
-                'name' => '',
-                'lastname' => '', 
-                'email' => '',
-                'phone_number' => '',
-                'dni' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+        Tutor::factory(10)->create();
     }
-}
+
 }

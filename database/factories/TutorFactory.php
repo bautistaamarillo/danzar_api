@@ -18,10 +18,10 @@ class TutorFactory extends Factory
     {
         return [
             'name' => fake()->firstname(),
-            'lastname' => fake()->lastname(),
+            'last_name' => fake()->lastname(),
             'email' => fake()->unique()->safeEmail(),
             'phone_number' => fake()->unique()->phoneNumber(),
-            'dni' => fake()->dni(),
+            'dni' => fake()->unique()->numberBetween(1000000,40000000),
         ];
     
     }
