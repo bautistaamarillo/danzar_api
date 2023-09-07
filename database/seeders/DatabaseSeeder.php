@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(SettingSeeder::class);
+        $this->call([TutorSeeder::class]);
+        \App\Models\Tutor::factory(50)->create();
     }
 }

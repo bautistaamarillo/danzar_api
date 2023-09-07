@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Tutor;
 
 class TutorSeeder extends Seeder
 {
@@ -18,6 +20,7 @@ class TutorSeeder extends Seeder
                 'lastname' => '', 
                 'email' => '',
                 'phone_number' => '',
+                'dni' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
