@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             PaymentSeeder::class,
             StudentTutorSeeder::class,
-            StudentItemSeeder::class
+            ItemStudentSeeder::class
         ]);
         
     }
