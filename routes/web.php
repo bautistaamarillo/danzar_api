@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StudentController;
 
 
 Route::get('/', function () {
@@ -31,4 +32,11 @@ Route::get('/token',function() {
 });
 
 Route::resource('categories', CategoryController::class);
+///////////////////////////////////////////////////////////////////////
+
+//TESTING GIANELLA.
+
+
+Route::resource('students', StudentController::class);
+
 ///////////////////////////////////////////////////////////////////////
