@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
         ]);
 
+        $this->call([PaymentSeeder::class]);
+        
     }
 }
