@@ -15,7 +15,17 @@ class SettingSeeder extends Seeder
     {
         //
         DB::table('settings')->insert([
-            'name'=> ''
+            'name'=> 'first_expiration_day',
         ]);
+
+        DB::table('settings')->insert([
+          'name'=> 'second_expiration_day',
+        ]);
+
+        DB::table('settings')->insert([
+            'name'=> 'third_day_of_expiration',
+          ]);
+
+        
     }
 }
