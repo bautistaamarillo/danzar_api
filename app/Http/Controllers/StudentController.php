@@ -12,7 +12,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $student = Student::All();
+        return $student;
     }
 
     /**
@@ -28,7 +29,20 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+        
+        $student = new Student();
+        $student->name = $request->name;
+        $student->last_name = $request->last_name;
+        $student->address = $request->address;
+        $student->dni = $request->dni;
+        $student->phone_number = $request->phone_number;
+        $student->observations = $request->observations;
+        $student->birthdate = $request->birthdate;
+        $student->save();
+       
+        return ($student);
     }
 
     /**
@@ -52,7 +66,15 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->last_name = $request->last_name;
+        $student->dni = $request->dni;
+        $student->phone_number = $request->phone_number;
+        $student->birthdate = $request->birthdate;
+        $student->save();
+        return $student;
     }
 
     /**
@@ -60,6 +82,9 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+           Student::destroy($id);
+            return ("Borrado con exito");
+        
     }
 }
