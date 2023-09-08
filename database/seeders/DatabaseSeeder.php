@@ -21,11 +21,12 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
             TutorSeeder::class,
             ItemSeeder::class,
+            StudentTutorSeeder::class,
             CategorySeeder::class,
             PaymentSeeder::class,
-            StudentTutorSeeder::class,
-            StudentItemSeeder::class,
+            // StudentItemSeeder::class,
             RolesSeeder::class,
+            Model_has_Roles_table::class
         ]);
         
     }
