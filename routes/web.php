@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TutorController;
+use App\Models\Payment;
 
 
 Route::get('/', function () {
