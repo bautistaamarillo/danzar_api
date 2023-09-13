@@ -12,7 +12,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        //
+        $tutor = Tutor::all();
+        return $tutor->toJson();
     }
 
     /**
@@ -27,39 +28,56 @@ class TutorController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $tutor = Tutor::create([
+            'name' => $request->name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'dni' => $request->dni,
+        ]);
+        return ($request);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Tutor $tutor)
+    public function show(string $id)
     {
-        //
+        $tutor = Tutor::WHERE('ID', $id)->get();
+        return $tutor;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tutor $tutor)
+    public function edit(string $id)
     {
-        //
+        $tutor = Tutor::where('id', $id)->get();
+        return $tutor->toJson();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tutor $tutor)
+    public function update(Request $request, string $id)
     {
-        //
+        $tutor = Tutor::find($id);
+        $tutor->name = $request->name;
+        $tutor->last_name = $request->last_name;
+        $tutor->email = $request->email;
+        $tutor->phone_number = $request->phone_number;
+        $tutor->dni = $request->dni;
+        $tutor->save();
+        return $tutor;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tutor $tutor)
+    public function destroy(string $id)
     {
-        //
+        Tutor::destroy($id);
+        return ("Ha sido borrado");
     }
 }
