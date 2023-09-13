@@ -6,6 +6,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TutorController;
 
 
 Route::get('/', function () {
@@ -42,3 +43,4 @@ Route::resource('items', ItemController::class);
 Route::resource('students', StudentController::class);
 
 ///////////////////////////////////////////////////////////////////////
+Route::resource('tutors', TutorController::class);
