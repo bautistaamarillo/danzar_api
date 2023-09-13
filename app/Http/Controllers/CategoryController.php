@@ -13,7 +13,8 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return $category;
+
+        return $category->toJson();
     }
 
     /**
@@ -52,7 +53,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category= Category::where('id', $id)->get();
+
+        return $category->toJson();
     }
 
     /**
@@ -72,9 +75,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        {
-            Category::destroy($id);
-            return ("Ha sido borrado");
-        } //Elimino el dato dependiendo el parametro ingresado ( ID )
+        Category::destroy($id);
+        return ("Ha sido borrado");
+        //Elimino el dato dependiendo el parametro ingresado ( ID )
     }
 }
