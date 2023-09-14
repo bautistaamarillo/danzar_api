@@ -12,7 +12,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $payment = Payment::all();
+
+        return $payment;
     }
 
     /**

@@ -29,6 +29,18 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {        
+        $validator = Validator::make($request->all(), [
+            "name"=>'required',
+            "last_name"=>'required',
+            "email"=>'required',
+            "phone_number"=>'required',
+            "dni"=>'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
+
         $tutor = Tutor::create([
             'name' => $request->name,
             'last_name' => $request->last_name,
@@ -36,6 +48,7 @@ class TutorController extends Controller
             'phone_number' => $request->phone_number,
             'dni' => $request->dni,
         ]);
+        
         return ($request);
     }
 

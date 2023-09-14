@@ -31,6 +31,14 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
+
         $category = Category::create([
             'name' => $request->name, //Creo un nuevo dato.
         ]);

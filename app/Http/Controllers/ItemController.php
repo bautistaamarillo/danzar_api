@@ -37,11 +37,16 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        
+        $validator = Validator::make($request->all(), [
             "name"=>'required',
             "amount"=>'required',
             "category_id"=>'required'
         ]);
+        
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
 
         $item= Item::create([
             'name' => $request->name,
