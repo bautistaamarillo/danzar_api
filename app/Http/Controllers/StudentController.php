@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -30,8 +31,20 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         
-
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'dni' => 'required',
+            'phone_number' => 'required',
+            'birthdate' => 'required',
+            //Valido todo aquello que debe ser ingresado obligatoriamente, "not null"
+        ]);
         
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
+
         $student = new Student();
         $student->name = $request->name;
         $student->last_name = $request->last_name;
@@ -67,6 +80,7 @@ class StudentController extends Controller
     public function update(Request $request, string $id)
     {
 
+        
         $student = Student::find($id);
         $student->name = $request->name;
         $student->last_name = $request->last_name;
