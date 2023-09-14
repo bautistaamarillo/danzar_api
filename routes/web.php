@@ -15,11 +15,11 @@ Route::get('/', function () {
 });
 
 /////////CORS, TESTING BAUTISTA////////////////////////////////////////
-function headerCors ( $response ){
-    $response->header('Access-Control-Allow-Origin', '*');
-    $response->header('Access-Control-Allow-Methods', 'GET');
-    $response->header('Access-Control-Allow-Headers', 'Content-Type');
-}
+// function headerCors ( $response ){
+//     $response->header('Access-Control-Allow-Origin', '*');
+//     $response->header('Access-Control-Allow-Methods', 'GET');
+//     $response->header('Access-Control-Allow-Headers', 'Content-Type');
+// }
 ///////////////////////////////////////////////////////////////////////
 
 //TESTING BAUTISTA.
