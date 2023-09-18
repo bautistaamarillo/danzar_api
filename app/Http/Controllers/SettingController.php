@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Setting;
+use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
@@ -12,8 +12,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting= Setting::All();
-        return $setting;
+        $setting = Setting::All();
+        return $setting->toJson();
     }
 
     /**
@@ -29,7 +29,19 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "name"=>'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
+
+        $tutor = Setting::create([
+            'name' => $request->name,
+        ]);
+        
+        return ($request);
     }
 
     /**
@@ -37,7 +49,8 @@ class SettingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tutor = Setting::WHERE('ID', $id)->get();
+        return $tutor;
     }
 
     /**
@@ -45,7 +58,8 @@ class SettingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tutor = Setting::where('id', $id)->get();
+        return $tutor->toJson();
     }
 
     /**
@@ -53,7 +67,10 @@ class SettingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $setting = Setting::find($id);
+        $setting->name = $request->name;
+        $setting->save();
+        return $setting;
     }
 
     /**
@@ -61,6 +78,7 @@ class SettingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Setting::destroy($id);
+        return ("Ha sido borrado");
     }
 }
