@@ -45,3 +45,4 @@ Route::resource('students', StudentController::class);
 
 ///////////////////////////////////////////////////////////////////////
 Route::resource('tutors', TutorController::class);
+Route::resource('settings', SettingsController::class);
