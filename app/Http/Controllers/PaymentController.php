@@ -30,7 +30,27 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'student_id' => 'required',
+            'date' => 'required',
+            'invoice_number' => 'required',
+            
+            //Valido todo aquello que debe ser ingresado obligatoriamente, "not null"
+        ]);
+        
+        if ($validator->fails()) {
+            return "Error al ingresar los datos, ha ingresado un campo vacio.";
+        }
+
+        $payment = new Payment();
+        $payment->student_id = $request->student_id;
+        $payment->date = $request->date;
+        $payment->invoice_number = $request->invoice_number;
+        $payment->created_at = now();
+        
+        $payment->save();
+       
+        return ($payment);
     }
 
     /**
@@ -38,7 +58,8 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
-        //
+        $payment = Payment::WHERE('ID',$id)->get(); //Busco datos especificos con un id
+        return $payment;
     }
 
     /**
@@ -46,7 +67,9 @@ class PaymentController extends Controller
      */
     public function edit(Payment $payment)
     {
-        //
+        $payment= Payment::where('id', $id)->get();
+
+        return $payment->toJson();
     }
 
     /**
@@ -54,7 +77,15 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        $payment = Payment::find($id);
+        $payment->student_id = $request->student_id;
+        $payment->date = $request->date;
+        $payment->invoice_number = $request->invoice_number;
+        $payment->update_at = now();
+        $category->save(); //Le cambio los datos dependiendo el parametro ingresado.
+ 
+        return $payment;
+
     }
 
     /**
@@ -62,6 +93,7 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        Payment::destroy($id);
+        return ("Ha sido borrado");
     }
 }
