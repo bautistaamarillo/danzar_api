@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: True');
+header('Access-Control-Allow-Headers: Content-Type');
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
