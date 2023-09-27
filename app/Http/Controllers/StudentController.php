@@ -96,9 +96,18 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        
+           //verificar deuda, posiblemente en el modelo, realizar una funcionj estatica 
+           //para que en este caso pongamos Student::nombrefuncion($id) y nos muestre
+           //si tiene o no deudas, en caso de que tenga deuda, que impida borrarlo,
+           //y si no tiene deudas que sea borrado con exito.
+
            Student::destroy($id);
-            return ("Borrado con exito");
+           return ("Borrado con exito");
         
     }
+
+
+    
+
+
 }
