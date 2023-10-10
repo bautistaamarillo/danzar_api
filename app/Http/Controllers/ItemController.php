@@ -61,9 +61,8 @@ class ItemController extends Controller
      */
     public function show(string $id)
     {
-        $item= Item::where('id', $id)->get();
-        
-        return $item->toJson();
+        $item = Item::WHERE('ID', $id)->get();
+        return $item;
     }
 
     /**

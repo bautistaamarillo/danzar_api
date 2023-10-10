@@ -63,7 +63,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $student = Student::WHERE('ID', $id)->get();
+        return $student;
     }
 
     /**

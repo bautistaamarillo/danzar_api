@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        $category = Category::WHERE('ID',$id)->get(); //Busco datos especificos con un id
+        $category = Category::WHERE('ID', $id)->get();
         return $category;
     }
 
