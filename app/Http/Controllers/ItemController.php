@@ -22,7 +22,7 @@ class ItemController extends Controller
 
         // $items= DB::select($sql);
 
-        return $items->toJson();
+        return $items;
     }
 
     /**
@@ -72,7 +72,7 @@ class ItemController extends Controller
     {
         $item= Item::where('id', $id)->get();
         
-        return $item->toJson();
+        return $item;
     }
 
     /**

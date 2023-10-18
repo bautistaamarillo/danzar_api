@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $category = Category::all();
 
-        return $category->toJson();
+        return $category;
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     {
         $category= Category::where('id', $id)->get();
 
-        return $category->toJson();
+        return $category;
     }
 
     /**
