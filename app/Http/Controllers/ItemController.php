@@ -82,8 +82,9 @@ class ItemController extends Controller
     {
         $item= Item::find($id);
 
-        $item-> name = $request->name;
-        $item-> amout = $request->amount;
+        $item->name = $request->name;
+        $item->amount = $request->amount;
+        $item->category_id = $request->category_id;
 
         $item->save();
 
