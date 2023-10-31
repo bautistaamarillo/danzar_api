@@ -18,6 +18,7 @@ class SettingFactory extends Factory
     {
         return [
             'name' => fake()->firstname(),
+            'activo' => fake()->numberBetween(0, 1)
         ];
     }
 }

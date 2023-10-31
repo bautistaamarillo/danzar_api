@@ -22,6 +22,7 @@ class TutorFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone_number' => fake()->unique()->phoneNumber(),
             'dni' => fake()->unique()->numberBetween(1000000,40000000),
+            'activo' => fake()->numberBetween(0, 1)
         ];
     
     }

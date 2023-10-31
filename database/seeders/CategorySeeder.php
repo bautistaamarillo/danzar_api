@@ -14,23 +14,28 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'name'=> 'Inscripción'
+            'name'=> 'Inscripción',
+            'activo' => 0
         ]);
 
         DB::table('categories')->insert([
-            'name'=> 'Disciplina'
+            'name'=> 'Disciplina',
+            'activo' => 0
         ]);
 
         DB::table('categories')->insert([
-            'name'=> 'Evento'
+            'name'=> 'Evento',
+            'activo' => 0
         ]);
 
         DB::table('categories')->insert([
-            'name'=> 'Recargo'
+            'name'=> 'Recargo',
+            'activo' => 0
         ]);
 
         DB::table('categories')->insert([
-            'name'=> 'Descuento'
+            'name'=> 'Descuento',
+            'activo' => 1
         ]);
     }
 }
