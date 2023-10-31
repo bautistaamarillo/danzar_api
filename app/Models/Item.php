@@ -14,7 +14,8 @@ class Item extends Model
     protected $fillable = [
         'name',
         'amount',
-        'category_id'
+        'category_id',
+        'activo'
     ];
     public function students(): BelongsToMany
     {

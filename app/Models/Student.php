@@ -17,7 +17,8 @@ class Student extends Model
         'dni',
         'phone_number', 
         'observations',     
-        'birthdate'                                     
+        'birthdate',
+        'activo'                                     
     ];
     
     public function tutors(): BelongsToMany

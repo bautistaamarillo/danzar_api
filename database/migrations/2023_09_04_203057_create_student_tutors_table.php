@@ -15,6 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('tutor_id');
             $table->primary(['student_id' , 'tutor_id']);
+            $table->boolean('activo');
             $table->timestamps();
         });
     }

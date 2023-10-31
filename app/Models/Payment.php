@@ -15,6 +15,7 @@ class Payment extends Model
         'student_id',
         'date',
         'invoice_number',
+        'activo'
     ];
     
 }
