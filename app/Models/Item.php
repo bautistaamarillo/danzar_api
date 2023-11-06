@@ -15,7 +15,7 @@ class Item extends Model
         'name',
         'amount',
         'category_id',
-        'activo'
+        'active'
     ];
     public function students(): BelongsToMany
     {

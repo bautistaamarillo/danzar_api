@@ -15,27 +15,27 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             'name'=> 'Inscripción',
-            'activo' => 0
+            'active' => 0
         ]);
 
         DB::table('categories')->insert([
             'name'=> 'Disciplina',
-            'activo' => 0
+            'active' => 0
         ]);
 
         DB::table('categories')->insert([
             'name'=> 'Evento',
-            'activo' => 0
+            'active' => 0
         ]);
 
         DB::table('categories')->insert([
             'name'=> 'Recargo',
-            'activo' => 0
+            'active' => 0
         ]);
 
         DB::table('categories')->insert([
             'name'=> 'Descuento',
-            'activo' => 1
+            'active' => 1
         ]);
     }
 }

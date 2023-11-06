@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("item_id")->nullable();
             $table->unsignedBigInteger("payment_id")->nullable();
             $table->integer("amount");
-            $table->boolean('activo');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

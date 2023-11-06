@@ -16,17 +16,17 @@ class SettingSeeder extends Seeder
         //
         DB::table('settings')->insert([
           'name'=> 'primer dia de vencimiento',
-          'activo' => 0
+          'active' => 0
         ]);
 
         DB::table('settings')->insert([
           'name'=> 'segundo dia de vencimiento',
-          'activo' => 0
+          'active' => 0
         ]);
 
         DB::table('settings')->insert([
           'name'=> 'tercer dia de vencimiento',
-          'activo' => 0
+          'active' => 0
         ]);
 
         

@@ -12,7 +12,7 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'activo'
+        'active'
     ];
     public function items(): HasMany
     {

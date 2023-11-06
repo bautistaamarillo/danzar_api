@@ -16,7 +16,7 @@ class StudentFactory extends Factory
             'dni' => fake()->unique()->numberBetween(1000000,40000000),
             'phone_number' => fake()->unique()->phoneNumber(),
             'birthdate' => fake()->date(),
-            'activo' => fake()->numberBetween(0, 1)
+            'active' => fake()->numberBetween(0, 1)
         ];
     }
 }

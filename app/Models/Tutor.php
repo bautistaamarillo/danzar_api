@@ -16,7 +16,7 @@ class Tutor extends Model
         'email',
         'phone_number',
         'dni',
-        'activo'                                           
+        'active'                                           
     ];
     public function students(): BelongsToMany
 {

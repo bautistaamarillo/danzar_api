@@ -24,7 +24,7 @@ class PaymentFactory extends Factory
             'student_id' => fake()->unique()->randomElement($studentIds),
             'date' => fake()->date('Y_m_d'),
             'invoice_number' => fake()->randomNumber(7, true),
-            'activo' => fake()->numberBetween(0, 1)
+            'active' => fake()->numberBetween(0, 1)
             
         ];
     }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('amount');
             $table->unsignedBigInteger('category_id')->references('id')->on('categories');
-            $table->boolean('activo');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

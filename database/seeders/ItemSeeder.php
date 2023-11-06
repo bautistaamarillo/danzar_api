@@ -17,31 +17,31 @@ class ItemSeeder extends Seeder
             'name'=> 'arabe',
             'amount'=> 2000,
             'category_id'=> 1,
-            'activo' => 0
+            'active' => 0
         ]);
         DB::table('items')->insert([
             'name'=> 'clásico',
             'amount'=> 3000,
             'category_id'=> 1,
-            'activo' => 0
+            'active' => 0
         ]);
         DB::table('items')->insert([
             'name'=> 'brasilero',
             'amount'=> 2500,
             'category_id'=> 1,
-            'activo' => 0
+            'active' => 0
         ]);
         DB::table('items')->insert([
             'name'=> 'contemporaneo',
             'amount'=> 3000,
             'category_id'=> 1,
-            'activo' => 0
+            'active' => 0
         ]);
         DB::table('items')->insert([
             'name'=> 'hip-hop',
             'amount'=> 2500,
             'category_id'=> 1,
-            'activo' => 0
+            'active' => 0
         ]);
     }
 }
