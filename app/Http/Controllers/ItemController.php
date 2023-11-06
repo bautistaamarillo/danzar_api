@@ -16,7 +16,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items= Item::all(); 
+        $items = Item::WHERE('active', 1)->get();;
 
         // $sql = 'SELECT * FROM items ';
 
@@ -49,10 +49,11 @@ class ItemController extends Controller
             return "Error al ingresar los datos, ha ingresado un campo vacio.";
         }
 
-        $item= Item::create([
+        $item = Item::create([
             'name' => $request->name,
             'amount' => $request->amount,
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'active' => 1
         ]);
     }
 
@@ -95,6 +96,9 @@ class ItemController extends Controller
      */
     public function destroy(string $id)
     {
-        $item= Item::destroy($id);
+        $item= Item::find($id);
+        $item->active = 0;
+
+        $item->save();
     }
 }
