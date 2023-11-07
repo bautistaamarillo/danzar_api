@@ -53,6 +53,7 @@ class StudentController extends Controller
         $student->phone_number = $request->phone_number;
         $student->observations = $request->observations;
         $student->birthdate = $request->birthdate;
+        $student->active = $request->active;
         $student->save();
        
         return ($student);

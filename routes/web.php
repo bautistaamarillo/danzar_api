@@ -57,3 +57,4 @@ Route::resource('students', StudentController::class);
 ///////////////////////////////////////////////////////////////////////
 Route::resource('tutors', TutorController::class);
 Route::resource('settings', SettingController::class);
+Route::resource('payments', PaymentController::class);
