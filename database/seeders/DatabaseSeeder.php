@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             PaymentSeeder::class,
             // StudentItemSeeder::class,
-            RolesSeeder::class,
-            Model_has_Roles_table::class
+            // RolesSeeder::class,
+            // Model_has_Roles_table::class
         ]);
         
     }
