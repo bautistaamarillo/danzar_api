@@ -44,7 +44,7 @@ class StudentController extends Controller
         if ($validator->fails()) {
             return "Error al ingresar los datos, ha ingresado un campo vacio.";
         }
-
+        
         $student = new Student();
         $student->name = $request->name;
         $student->last_name = $request->last_name;
@@ -54,8 +54,23 @@ class StudentController extends Controller
         $student->observations = $request->observations;
         $student->birthdate = $request->birthdate;
         $student->active = $request->active;
+
+        $itemstudents = $request->itemstudents;
+
+        
+        
         $student->save();
-       
+        
+        foreach ($itemstudents as $items) {
+            $student->items()->attach($student->id, [
+                "item_id" => $items["item_id"]
+            ]
+            );
+        }
+        
+
+
+
         return ($student);
     }
 

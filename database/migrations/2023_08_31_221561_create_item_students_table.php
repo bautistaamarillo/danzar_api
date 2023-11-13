@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('item_students', function (Blueprint $table) {
             
+            $table->id();
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('student_id');
-            $table->primary(['item_id' , 'student_id']);
             $table->boolean('active');
             $table->timestamps();
 
