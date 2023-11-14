@@ -30,7 +30,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // dd($request);
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'last_name' => 'required',
@@ -38,6 +38,7 @@ class StudentController extends Controller
             'dni' => 'required',
             'phone_number' => 'required',
             'birthdate' => 'required',
+            
             //Valido todo aquello que debe ser ingresado obligatoriamente, "not null"
         ]);
         
@@ -53,20 +54,20 @@ class StudentController extends Controller
         $student->phone_number = $request->phone_number;
         $student->observations = $request->observations;
         $student->birthdate = $request->birthdate;
-        $student->active = $request->active;
+        $student->active = 1;
 
-        $itemstudents = $request->itemstudents;
+        $itemstudents = $request->studentitems;
 
         
         
         $student->save();
         
-        foreach ($itemstudents as $items) {
-            $student->items()->attach($student->id, [
-                "item_id" => $items["item_id"]
-            ]
-            );
-        }
+        // foreach ($itemstudents as $items) {
+        //     $student->items()->attach($student->id, [
+        //         "item_id" => $items["item_id"]
+        //     ]
+        //     );
+        // }
         
 
 
