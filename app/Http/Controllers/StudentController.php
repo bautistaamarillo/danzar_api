@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,7 +31,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+         //dd($request);
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'last_name' => 'required',
@@ -55,12 +56,17 @@ class StudentController extends Controller
         $student->observations = $request->observations;
         $student->birthdate = $request->birthdate;
         $student->active = 1;
-
-        $itemstudents = $request->studentitems;
-
-        
-        
         $student->save();
+
+        $item = $request->studentitems;
+         dd($item);
+      //  foreach ( $request->studentitems as $items){
+
+            $student->items()->attach($item[0]->id);
+
+        //}
+        
+        //$item->students()->attach($item[0]->id);
         
         // foreach ($itemstudents as $items) {
         //     $student->items()->attach($student->id, [

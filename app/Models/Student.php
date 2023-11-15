@@ -20,15 +20,16 @@ class Student extends Model
         'birthdate',
         'active'                                     
     ];
-    
+
+    public function items(): BelongsToMany
+    {
+        return $this->belongsToMany(Item::class,"item_students");
+    }
     public function tutors(): BelongsToMany
     {
         return $this->belongsToMany(Tutor::class,"student_tutors");
     }
-    public function items(): BelongsToMany
-    {
-        return $this->belongsToMany(Tutor::class,"item_students");
-    }
+    
 
 
     

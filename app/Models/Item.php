@@ -19,11 +19,11 @@ class Item extends Model
     ];
     public function students(): BelongsToMany
     {
-        return $this->belongsToMany(Tutor::class,"item_students");
+        return $this->belongsToMany(Student::class,"item_students");
     }
     public function payments(): BelongsToMany
     {
-        return $this->belongsToMany(Tutor::class,"item_payments");
+        return $this->belongsToMany(Payment::class,"item_payments");
     }
     public function category(): BelongsTo
     {
