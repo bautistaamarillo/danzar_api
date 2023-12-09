@@ -34,7 +34,7 @@ class PaymentController extends Controller
         $validator = Validator::make($request->all(), [
             'student_id' => 'required',
             'date' => 'required',
-            'invoice_number' => 'required',
+            'number' => 'required',
             
             //Valido todo aquello que debe ser ingresado obligatoriamente, "not null"
         ]);
@@ -46,8 +46,8 @@ class PaymentController extends Controller
         $payment = new Payment();
         $payment->student_id = $request->student_id;
         $payment->date = $request->date;
-        $payment->invoice_number = $request->invoice_number;
-        $payment->created_at = now();
+        $payment->number = $request->number;
+        $payment->active = 1;
         
         $payment->save();
        
@@ -57,16 +57,16 @@ class PaymentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Payment $payment)
+    public function show(string $id)
     {
-        $payment = Payment::WHERE('ID',$id)->get(); //Busco datos especificos con un id
+        $payment = Payment::WHERE('ID', $id)->get(); //Busco datos especificos con un id
         return $payment;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Payment $payment)
+    public function edit(string $id)
     {
         $payment= Payment::where('id', $id)->get();
 
@@ -76,14 +76,13 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, string $id)
     {
         $payment = Payment::find($id);
         $payment->student_id = $request->student_id;
         $payment->date = $request->date;
-        $payment->invoice_number = $request->invoice_number;
-        $payment->update_at = now();
-        $category->save(); //Le cambio los datos dependiendo el parametro ingresado.
+        $payment->number = $request->number;
+        $payment->save(); //Le cambio los datos dependiendo el parametro ingresado.
  
         return $payment;
 
@@ -92,7 +91,7 @@ class PaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Payment $payment)
+    public function destroy(string $id)
     {
         Payment::destroy($id);
         return ("Ha sido borrado");
