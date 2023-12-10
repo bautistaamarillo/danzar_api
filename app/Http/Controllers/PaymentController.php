@@ -35,6 +35,7 @@ class PaymentController extends Controller
             'student_id' => 'required',
             'date' => 'required',
             'number' => 'required',
+            'amount' => 'required',
             
             //Valido todo aquello que debe ser ingresado obligatoriamente, "not null"
         ]);
@@ -47,6 +48,7 @@ class PaymentController extends Controller
         $payment->student_id = $request->student_id;
         $payment->date = $request->date;
         $payment->number = $request->number;
+        $payment->amount = $request->amount;
         $payment->active = 1;
         
         $payment->save();
@@ -82,6 +84,7 @@ class PaymentController extends Controller
         $payment->student_id = $request->student_id;
         $payment->date = $request->date;
         $payment->number = $request->number;
+        $payment->amount = $request->amount;
         $payment->save(); //Le cambio los datos dependiendo el parametro ingresado.
  
         return $payment;
