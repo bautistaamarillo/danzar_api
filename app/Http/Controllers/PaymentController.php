@@ -62,7 +62,8 @@ class PaymentController extends Controller
     public function show(string $id)
     {
         $payment = Payment::WHERE('ID', $id)->get(); //Busco datos especificos con un id
-        return $payment;
+        $items = $payment->find($id)->items->get();
+        
     }
 
     /**

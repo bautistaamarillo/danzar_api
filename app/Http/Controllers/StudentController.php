@@ -59,17 +59,17 @@ class StudentController extends Controller
         $student->save();
    
         
-        $item = $request->studentitems;
+        $items = $request->studentitems;
         
 
+    //    dd($request->studentitems);
+       // dd($items[0]['id']);
 
-       //  dd($item[0]['id']);
+        
 
+       foreach ($items as $key=>$item){
 
-
-       foreach ( $request->studentitems as $items){
-
-            $student->items()->attach($item[0]['id']);
+            $student->items()->attach($items[$key]['id']);
 
         }
         
@@ -94,7 +94,8 @@ class StudentController extends Controller
     public function show(string $id)
     {
         $student = Student::WHERE('ID', $id)->get();
-        return $student;
+        
+        return $student[0]->items;
     }
 
     /**
@@ -119,6 +120,13 @@ class StudentController extends Controller
         $student->phone_number = $request->phone_number;
         $student->birthdate = $request->birthdate;
         $student->save();
+        $items = $request->studentitems;
+    
+           foreach ($items as $key=>$item){
+    
+                $student->items()->attach($items[$key]['id']);
+    
+            }
         return $student;
     }
 
