@@ -91,11 +91,11 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id,)
     {
-        $student = Student::WHERE('ID', $id)->get();
-        
-        return $student[0]->items;
+        $student = Student::WHERE('ID', $id)
+        ->with('items')->get();
+        return $student;
     }
 
     /**
